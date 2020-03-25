@@ -7,5 +7,6 @@ This is a small project created to practice with Github API, setting up the exam
 
 
 - That said, of course I will be using Python 3.7.
+
 	![Python logo](src/python-logo.png)
 	
