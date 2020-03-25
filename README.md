@@ -5,6 +5,7 @@ This is a small project created to practice with Github API, setting up the exam
 - I will be using Bottle, which is a a fast, simple and lightweight WSGI micro web-framework for Python.
 	![Bottle logo](src/bottle-logo.png)
 
+
 - That said, of course I will be using Python 3.7.
 	![Python logo](src/python-logo.png)
 	
