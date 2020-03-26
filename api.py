@@ -1,18 +1,20 @@
 import os
-import requests
-from github import Github, InputFileContent
-import http.client
+from github import Github
+
 
 GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
 api = Github(GITHUB_TOKEN)
 
 
-def get_repos_user(user):
-    return list(user.get_repos())
+def init():
+    return api
 
 
-if __name__ == '__main__':
-    me = api.get_user()
-    repos = get_repos_user(me)
-    print(repos)
-    # print(f'{api}, {me}')
+def get_hacktober_progress(user):
+    pulls = []
+    repos = list(user.get_repos())
+    for r in repos:
+        for l in r.get_labels():
+            if l.name == 'Hacktoberfest':
+                pulls.append(r.get_pulls(sort='created'))
+    return pulls
