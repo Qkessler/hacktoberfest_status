@@ -4,28 +4,15 @@ from github import Github, InputFileContent
 import http.client
 
 GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
-
-# conn = http.client.HTTPSConnection("apis-sandbox.bancosantander.es")
-
-# headers = {'accept': "application/json"}
-
-# conn.request("GET", full_url, headers=headers)
-
-# res = conn.getresponse()
-# res.flush()
-# data = res.read()
-# print(full_url)
-# print(data.decode("utf-8"))
+api = Github(GITHUB_TOKEN)
 
 
-
-def start_api():
-    g = Github(GITHUB_TOKEN)
-    me = g.get_user()
-    for repo in me.get_repos():
-        # print(help(repo))
-        
+def get_repos_user(user):
+    return list(user.get_repos())
 
 
 if __name__ == '__main__':
-    start_api()
+    me = api.get_user()
+    repos = get_repos_user(me)
+    print(repos)
+    # print(f'{api}, {me}')
